@@ -14,8 +14,9 @@ int main(int argc, char * argv[]) {
 
   input.open(argv[1], std::ios::binary | std::ios::in);
 
-  while(input.read((char *)&buffer, sizeof(int)))
+  while(input.read((char *)&buffer, sizeof(int))) {
     program.push_back(buffer);
+  }
 
   input.close();
 

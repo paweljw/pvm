@@ -15,9 +15,7 @@ void Vm::printa() {
 void Vm::read() {
   char input;
   std::cin.get(input);
-  std::cout << "Read " << input << std::endl;
   stack.push_back(input);
   advance();
-  std::cout << "Done" << std::endl;
 }
 

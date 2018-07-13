@@ -53,6 +53,9 @@ void Vm::step() {
     case DIV:
       div();
       break;
+    case MOD:
+      mod();
+      break;
     case RPOP:
       rpop();
       break;
@@ -70,6 +73,9 @@ void Vm::step() {
       break;
     case JUMPF:
       jumpf();
+      break;
+    case JUMPS:
+      jumps();
       break;
     case HALT:
       halt();
