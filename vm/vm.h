@@ -23,6 +23,7 @@ class Vm {
   void sub();
   void mul();
   void div();
+  void mod();
 
   // registers.cpp
   void rpush();
@@ -42,6 +43,7 @@ class Vm {
   void jump();
   void jumpt();
   void jumpf();
+  void jumps();
   void halt();
 
   // comparison.cpp

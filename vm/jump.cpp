@@ -26,6 +26,10 @@ void Vm::jumpf() {
   stack.pop_back(); // Destroy source of comparison either way
 }
 
+void Vm::jumps() {
+  programPointer = stackPop();
+}
+
 void Vm::halt() {
   programPointer = program.size();
 }

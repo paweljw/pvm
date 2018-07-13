@@ -27,3 +27,10 @@ void Vm::div() {
   stack.push_back(first / second);
   advance();
 }
+
+void Vm::mod() {
+  int second = stackPop();
+  int first = stackPop();
+  stack.push_back(first % second);
+  advance();
+}

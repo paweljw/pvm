@@ -1,2 +1,5 @@
-hello_world
+bin/*
+!bin/.keep
 *.o
+*.pvm
+

@@ -5,15 +5,17 @@ LDFLAGS=-g
 VM_SRCS := $(wildcard vm/*.cpp)
 VM_OBJS := $(VM_SRCS:.cpp=.o)
 
-all: clean hello_world
+all: runtime compiler
 
-hello_world: $(VM_OBJS) hello_world.o
-	$(CC) $(LDFLAGS) -o hello_world hello_world.o $(VM_OBJS)
+runtime: $(VM_OBJS) runtime.o
+	$(CC) $(LDFLAGS) -o bin/runtime runtime.o $(VM_OBJS)
+
+compiler: compiler.o
+	$(CC) $(LDFLAGS) -o bin/compiler compiler.o
 
 clean:
 	rm -f *.o
 	rm -f vm/*.o
-	rm -f hello_world
+	rm -f bin/runtime
+	rm -f bin/compiler
 
-run: clean hello_world
-	./hello_world
