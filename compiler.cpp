@@ -5,7 +5,7 @@
 #include <vector>
 #include <map>
 
-#include "vm/opcodes.h"
+#include "vm/opcodes.hpp"
 
 int resolveOption(std::string token) {
   if(token == "PUSH") return PUSH;
@@ -60,6 +60,8 @@ int main(int argc, char * argv[]) {
       tokenStream.push_back(token);
     }
   }
+
+  input.close();
 
   bool labelMode = false;
   int instructionPointer = 0;

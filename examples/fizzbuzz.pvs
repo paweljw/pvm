@@ -12,7 +12,7 @@ PUSH 0 RPOP 2
 #### FIZZ ####
 # iteration modulo 3
 RPUSH 1 PUSH 3 MOD
-# skip writing Fuzz if modulo != 0 (value is true)
+# skip writing Fizz if modulo != 0 (value is true)
 JUMPT __buzz
 # set flag notifying that we wrote Fizz
 PUSH 1 RPOP 2

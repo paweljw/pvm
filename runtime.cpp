@@ -1,6 +1,6 @@
 #include <fstream>
 #include <iostream>
-#include "vm/vm.h"
+#include "vm/vm.hpp"
 
 int main(int argc, char * argv[]) {
   if (argc != 2) {
