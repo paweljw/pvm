@@ -19,3 +19,6 @@ clean:
 	rm -f bin/runtime
 	rm -f bin/compiler
 
+examples: compiler
+	bin/compiler examples/fizzbuzz.pvs fizzbuzz.pvm
+	bin/compiler examples/hello_world.pvs hello_world.pvm

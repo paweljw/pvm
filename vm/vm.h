@@ -5,7 +5,7 @@
 class Vm {
   std::vector<int> program;
   std::vector<int> stack;
-  int registers[4];
+  int registers[16];
   int programPointer = 0;
 
   public:

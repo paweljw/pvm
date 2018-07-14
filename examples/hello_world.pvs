@@ -1,29 +1,12 @@
-# 0
-PUSH 10
-# 2
-PUSH 33
-# 4
-PUSH 100
-PUSH 108
-PUSH 114
-PUSH 111
-PUSH 87
-PUSH 32
-PUSH 111
-PUSH 108
-PUSH 108
-PUSH 101
-PUSH 72
-PUSH 13
-RPOP 0
-# 30, loop begin
-PRINTA
-POP
-RPUSH 0
-PUSH 1
-SUB
-RCPY 0
-PUSH 0
-EQ
-JUMPF 30
-# loop end
+# !dlroW olleH
+PUSH 10 PUSH 33 PUSH 100 PUSH 108 PUSH 114 PUSH 111 PUSH 87 PUSH 32 PUSH 111 PUSH 108 PUSH 108 PUSH 101 PUSH 72
+# Put number of letters in register 0
+PUSH 13 RPOP 0
+
+LABEL __loop
+# Print letter
+PRINTA POP
+# Decrement counter in register 0
+RPUSH 0 PUSH 1 SUB RPOP 0 RPUSH 0
+# If counter not == 0, loop
+PUSH 0 EQ JUMPF __loop

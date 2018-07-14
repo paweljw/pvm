@@ -1,84 +1,48 @@
-# 0, add number of iterations onto stack
-PUSH 100
-# 2, move number of iterations into register 0
-RPOP 0
-# 4, push current indicator onto stack
-PUSH 1
-# 6, move indicator into register 1
-RPOP 1
-# 8, loop begin
+# set register 0 to max iterations (100)
+PUSH 100 RPOP 0
 
-# Put 0 in register 2
-PUSH 0
-# 10
-RPOP 2
+# set register 1 to current iteration (1)
+PUSH 1 RPOP 1
 
-# 12, pop data into buffer
-RPUSH 1
+# mark beginning of loop
+LABEL __loop
+# Set flag in register 2 to 0
+PUSH 0 RPOP 2
 
-# 14 put 3 on stack
-PUSH 3
-# 16 put X mod 3 on stack
-MOD
-# 17 if true (modulo failed) jump ahead
-JUMPT 39
-# 19
-PUSH 1
-# 21
-RPOP 2
-# 23 push Fizz
-PUSH 122 PUSH 122 PUSH 105 PUSH 70
-# 31 print fizz
-PRINTA POP PRINTA POP PRINTA POP PRINTA POP
+#### FIZZ ####
+# iteration modulo 3
+RPUSH 1 PUSH 3 MOD
+# skip writing Fuzz if modulo != 0 (value is true)
+JUMPT __buzz
+# set flag notifying that we wrote Fizz
+PUSH 1 RPOP 2
+# write out Fizz
+PUSH 122 PUSH 122 PUSH 105 PUSH 70 PRINTA POP PRINTA POP PRINTA POP PRINTA POP
 
-# 39 push number onto stack again
-RPUSH 1
-# 41 push 5 for comparison
-PUSH 5
-# 43 put X mod 5 on stack
-MOD
-# 44 if true (modulo failed) jump ahead
-JUMPT 66
-# 46 put flag on stack
-PUSH 1
-# 48 put flag into register
-RPOP 2
-# 50 push Buzz
-PUSH 122 PUSH 122 PUSH 117 PUSH 66
-# 58 print Buzz
-PRINTA POP PRINTA POP PRINTA POP PRINTA POP
-# 66 put flag onto stack
-RPUSH 2
-# 68 put comparison value onto stack
-PUSH 1
-# 70 compare
-EQ
-# 71
-JUMPT 77
-# 73, push value on stack AGAIN
-RPUSH 1
-# 75 print and pop
-PRINT
-# 76
-POP
+#### BUZZ ####
+LABEL __buzz
+RPUSH 1 PUSH 5 MOD
+JUMPT __conditionally_print_number
+PUSH 1 RPOP 2
+# write out Buzz
+PUSH 122 PUSH 122 PUSH 117 PUSH 66 PRINTA POP PRINTA POP PRINTA POP PRINTA POP
+# since we definitely wrote something, jump right to counter incrementation
+JUMP __increment_counter
 
+#### Print number ####
+LABEL __conditionally_print_number
+# If register 2 equals 1, we printed something already, so jump over
+RPUSH 2 PUSH 1 EQ JUMPT __increment_counter
+# Print number
+RPUSH 1 PRINT POP
 
-# 77 Push register value onto stack
-RPUSH 1
-# 78 push subtraction second operand onto stack
-PUSH 1
-# 81
-ADD
-# 82
-RCPY 1
+#### Increment loop counter ####
+LABEL __increment_counter
+RPUSH 1 PUSH 1 ADD RPOP 1 RPUSH 1
 
-PUSH 10
-PRINTA
-POP
+#### Write newline ####
+PUSH 10 PRINTA POP
 
-# 84 Add comparison source onto stack
-PUSH 100
-# 86
-EQ
-# 87 If iterator not equal to 100, jump back to instruction 8
-JUMPF 8
+# Top of stack has iteration number already, so just copy max from register,
+# compare and if max has not been reached, jump to beginning of loop
+RPUSH 0 EQ JUMPF __loop

@@ -7,18 +7,23 @@ paweljw's virtual machine.
 This project includes:
 
 * a runtime for a stack-based VM, sporting a whopping 21 opcodes,
-* a compiler for a super-rudimentary (meaning, almost opcode-like) language to a binary format understood by runtime,
+* a compiler for a super-rudimentary (meaning, almost opcode-like) language to a binary format understood by runtime (but at least it has labels now),
 * a couple of examples of using the language,
-* absolutely no procedure jumps, global memory save for four registers, or automatic offset calculation (augh).
+* absolutely no procedures (though they can be implemented after a fashion) or global memory except for sixteen registers.
 
 ## Usage
 
 ```
 $ make
-$ bin/compiler examples/hello_world.pvs hello_world.pvm
+$ make examples
 $ bin/runtime hello_world.pvm
-$ bin/compiler examples/fizzbuzz.pvs fizzbuz.pvm
 $ bin/runtime fizzbuzz.pvm
+```
+
+Compiling a script:
+
+```
+$ bin/compiler script.pvs output.pvm
 ```
 
 ## TODO

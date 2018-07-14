@@ -12,7 +12,6 @@ enum {
   MOD = 9,      // Pushes bottom modulo top onto stack
   RPOP = 10,     // Pop top of stack and put into register given by first argument
   RPUSH = 11,   // Put register value given by first argument onto stack,
-  RCPY = 12,    // Copy top of stack to register given by first argument
   JUMP = 13,    // Jump to instruction given as 1st argument
   JUMPT = 14,   // Jump to instruction given as 1st argument if top of stack is > 0
   JUMPF = 15,   // Jump to instruction given as 1st argument if top of stack is <= 0
