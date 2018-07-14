@@ -1,4 +1,4 @@
-#include "vm.h"
+#include "vm.hpp"
 
 void Vm::add() {
   int second = stackPop();

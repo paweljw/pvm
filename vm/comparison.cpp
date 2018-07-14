@@ -1,4 +1,4 @@
-#include "vm.h"
+#include "vm.hpp"
 
 void Vm::gt() {
   int second = stackPop();

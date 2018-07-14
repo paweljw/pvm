@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "vm.h"
+#include "vm.hpp"
 
 void Vm::print() {
   std::cout << stack.back();

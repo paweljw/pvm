@@ -1,5 +1,6 @@
-#include "vm.h"
 #include <iostream>
+
+#include "vm.hpp"
 
 void Vm::jump() {
   advance(); // Move to next instruction (argument)

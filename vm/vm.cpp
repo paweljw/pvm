@@ -6,8 +6,8 @@
 #include <stdio.h>
 #endif
 
-#include "opcodes.h"
-#include "vm.h"
+#include "opcodes.hpp"
+#include "vm.hpp"
 
 
 Vm::Vm(std::vector<int> _program) {

@@ -1,4 +1,4 @@
-#include "vm.h"
+#include "vm.hpp"
 
 void Vm::rpush() {
   advance(); // Move to argument
