@@ -10,7 +10,7 @@ enum {
   MUL = 7,      // Pop two elements off stack, multiply them, push result onto stack
   DIV = 8,      // Pop two elements off stack, integer-divide bottom by top, push result onto stack
   MOD = 9,      // Pushes bottom modulo top onto stack
-  RPOP = 10,     // Pop top of stack and put into register given by first argument
+  RPOP = 10,    // Pop top of stack and put into register given by first argument
   RPUSH = 11,   // Put register value given by first argument onto stack,
   JUMP = 13,    // Jump to instruction given as 1st argument
   JUMPT = 14,   // Jump to instruction given as 1st argument if top of stack is > 0

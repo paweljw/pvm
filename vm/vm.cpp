@@ -62,9 +62,6 @@ void Vm::step() {
     case RPUSH:
       rpush();
       break;
-    case RCPY:
-      rcpy();
-      break;
     case JUMP:
       jump();
       break;

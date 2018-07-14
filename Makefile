@@ -18,7 +18,15 @@ clean:
 	rm -f vm/*.o
 	rm -f bin/runtime
 	rm -f bin/compiler
+	rm -f *.pvm
 
-examples: compiler
-	bin/compiler examples/fizzbuzz.pvs fizzbuzz.pvm
+hello_world: examples/hello_world.pvs
 	bin/compiler examples/hello_world.pvs hello_world.pvm
+
+fizzbuzz: examples/fizzbuzz.pvs
+	bin/compiler examples/fizzbuzz.pvs fizzbuzz.pvm
+
+fibonacci: examples/fibonacci.pvs
+	bin/compiler examples/fibonacci.pvs fibonacci.pvm
+
+examples: runtime compiler hello_world fizzbuzz fibonacci

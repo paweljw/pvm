@@ -26,6 +26,8 @@ Compiling a script:
 $ bin/compiler script.pvs output.pvm
 ```
 
+### Debugging
+
 ## TODO
 
 * [x] Question my Friday evening pastimes.

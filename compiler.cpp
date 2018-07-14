@@ -19,7 +19,6 @@ int resolveOption(std::string token) {
   if(token == "MOD") return MOD;
   if(token == "RPOP") return RPOP;
   if(token == "RPUSH") return RPUSH;
-  if(token == "RCPY") return RCPY;
   if(token == "JUMP") return JUMP;
   if(token == "JUMPT") return JUMPT;
   if(token == "JUMPF") return JUMPF;

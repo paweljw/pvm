@@ -1,0 +1,30 @@
+# Number of iteration into register 0
+PUSH 1 RPOP 0
+# First term into register 1
+PUSH 1 RPOP 1
+# Second term into register 2
+PUSH 1 RPOP 2
+
+# Cheat and write two first terms
+PUSH 1 PRINT
+PUSH 10 PRINTA POP
+PRINT POP
+PUSH 10 PRINTA POP
+
+LABEL __loop
+# Calculate next term and put it on stack
+RPUSH 1 RPUSH 2 ADD
+# Print term
+PRINT
+# Print newline
+PUSH 10 PRINTA POP
+# Put previous second term into register 1 (first term)
+RPUSH 2 RPOP 1
+# Put current term into second term place
+RPOP 2
+
+# Copy register 0 onto stack, add 1, put back into register 0 and back on stack
+RPUSH 0 PUSH 1 ADD RPOP 0 RPUSH 0
+PUSH 20 GT JUMPF __loop
+
+
